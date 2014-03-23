@@ -20,14 +20,15 @@
     </style>
 
     <script>
-      var host = location.origin.replace(/^http/, 'ws')
-      var ws = new WebSocket(host);
-      ws.onmessage = function (event) {
-        var li = document.createElement('li');
-        li.innerHTML = event.data
-        document.querySelector('#pings').appendChild(li);
-      };
+    //   var host = location.origin.replace(/^http/, 'ws')
+    //   var ws = new WebSocket(host);
+    //   ws.onmessage = function (event) {
+    //     var li = document.createElement('li');
+    //     li.innerHTML = event.data
+    //     document.querySelector('#pings').appendChild(li);
+    //   };
     </script>
+
   </head>
   <body>
     <h1>KTV</h1>
@@ -38,7 +39,10 @@
         window.mediaElement = document.getElementById('media');
         window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-        window.castReceiverManager.start();
+        var appConfig = new cast.receiver.CastReceiverManager.Config();
+        appConfig.statusText = 'Ready to play';
+        appConfig.maxInactivity = 6000;
+        window.castReceiverManager.start(appConfig);
       }
     </script>
   </body>
