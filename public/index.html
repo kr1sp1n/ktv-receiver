@@ -1,5 +1,7 @@
 <html>
   <head>
+    <title>KTV Receiver</title>
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <style>
       body {
         font-family: "Helvetica Neue", helvetica, arial;
@@ -28,7 +30,16 @@
     </script>
   </head>
   <body>
-    <h1>Pings</h1>
+    <h1>KTV</h1>
     <ul id='pings'></ul>
+    <video id='media'/>
+    <script>
+      window.onload = function() {
+        window.mediaElement = document.getElementById('media');
+        window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
+        window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+        window.castReceiverManager.start();
+      }
+    </script>
   </body>
 </html>
