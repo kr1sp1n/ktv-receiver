@@ -3,9 +3,11 @@
     <title>KTV Receiver</title>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <style>
+    
       body {
         font-family: "Helvetica Neue", helvetica, arial;
         padding: 15px;
+        overflow:hidden;
       }
 
       ul {
@@ -17,23 +19,23 @@
       ul li {
         line-height: 1.4;
       }
-    </style>
 
-    <script>
-    //   var host = location.origin.replace(/^http/, 'ws')
-    //   var ws = new WebSocket(host);
-    //   ws.onmessage = function (event) {
-    //     var li = document.createElement('li');
-    //     li.innerHTML = event.data
-    //     document.querySelector('#pings').appendChild(li);
-    //   };
-    </script>
+      #content {
+        width: 1280px;
+        height: 720px;
+        position: absolute;
+        background-color: red;
+        color: white;
+      }
+
+    </style>
 
   </head>
   <body>
-    <h1>KTV</h1>
-    <ul id='pings'></ul>
-    <video id='media'/>
+    <div id="content">
+      <h1>KTV</h1>
+      <video id='media'/>
+    </div>
     <script>
       window.onload = function() {
         window.mediaElement = document.getElementById('media');
