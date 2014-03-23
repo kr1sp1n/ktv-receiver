@@ -1,0 +1,21 @@
+{
+  "name": "ktv",
+  "version": "0.0.1",
+  "description": "Karaoke TV for chromecast",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kr1sp1n",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.34.0",
+    "express": "^3.5.0",
+    "logfmt": "^1.0.0-pre3",
+    "coffee-script": "^1.7.1",
+    "ws": "^0.4.31"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
