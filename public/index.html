@@ -1,7 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" ng-app="ktv">
   <head>
     <title>KTV Receiver</title>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js"></script>
+    <script src="js/index.js"></script>
     <style>
 
       body {
@@ -39,6 +43,27 @@
       <h1>KTV</h1>
       <video id='media'/>
     </div>
+    <div id="ytplayer"></div>
+
+    <script>
+      // Load the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // Replace the 'ytplayer' element with an <iframe> and
+      // YouTube player after the API code downloads.
+      var player;
+      function onYouTubePlayerAPIReady() {
+        player = new YT.Player('ytplayer', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE'
+        });
+      };
+
+    </script>
     <script>
       window.onload = function() {
         window.mediaElement = document.getElementById('media');
